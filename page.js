@@ -1,5 +1,6 @@
 
-let cardDetail;
+
+
 
 function Navbar() {
     return (
@@ -66,13 +67,16 @@ function Main() {
 
         console.log(cardDetail);
 
-        setHeading("");
-        setImgSrc("");
-        setSummary("");
 
     }
     function CreateComponet(event) {
-        setElemet(element.concat(<Card heading={cardDetail?.h1} imgSrc={cardDetail?.src} summary={cardDetail?.cont} />))
+        // setElemet(element.concat(<Card heading={cardDetail?.h1} imgSrc={cardDetail?.src} summary={cardDetail?.cont} />))
+        setElemet(element.concat(<Card head={heading} img={imgSrc} sum={summary} />))
+
+        
+        setHeading("");
+        setImgSrc("");
+        setSummary("");
     }
     function ClearComponet() {
         setElemet([]);
@@ -80,13 +84,13 @@ function Main() {
 
     return (
         <main className=" my-5 p-4">
-            <h1 className="h1 text-light">This Will Help you React Dyanmic Cards</h1>
+            <h2 className="h2 text-light">This Will Help to Create you React Dyanmic Cards</h2>
             <hr width="70%" className="text-light" />
             <div className="w-100  p-5 pt-0 pb-2">
                 <input type="text" className="col-12 p-2 my-2" placeholder="Heading of Componet" name="heading" value={heading} onChange={Heading} />
                 <input type="text" className="col-12 p-2 my-2" placeholder="Image Source" name="img" value={imgSrc} onChange={ImgSrc} />
                 <textarea className="form-control my-2" name="textBox" id="textBox" cols="150" rows="10" value={summary} onChange={Summary} placeholder="Enter summary Here" ></textarea>
-                <button className="btn btn-outline-primary my-3" onClick={update}>Update</button>
+                {/* <button className="btn btn-outline-primary my-3" onClick={update}>Update</button> */}
                 <button className="btn btn-outline-primary my-3 mx-2" onClick={CreateComponet}>Create Componet</button>
                 <button className="btn btn-outline-primary my-3 " onClick={ClearComponet}>Clear Componet</button>
 
@@ -105,10 +109,10 @@ function Card(props) {
 
 
     return (<div className=" p-3 my-2 border border-light mx-lg-4  mx-sm-5   my-4 col-lg-3 col-md-4 col-sm-12 rounded" id="card" >
-        <h1 className="text-light ">{props.heading}</h1>
+        <h1 className="text-light ">{  props.head}</h1>
         <hr className="text-light my-3" />
-        <img src={props.imgSrc} alt="" width="100%"  />
-        <p className="text-light my-3">{props.summary}</p>
+        <img src={props.img} alt="" width="100%"  />
+        <p className="text-light my-3">{props.sum}</p>
     </div>
 
     )
